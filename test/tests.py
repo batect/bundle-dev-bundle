@@ -1,1 +1,8 @@
-# TODO
+print()
+print("There are no tests defined for this bundle.")
+print()
+print("Take a look at some of these bundles for examples:")
+print("- Golang bundle: https://github.com/batect/golang-bundle/blob/master/test/tests.py")
+print("- Node.js bundle: https://github.com/batect/node-bundle/blob/master/test/tests.py")
+print("- Java bundle: https://github.com/batect/java-bundle/blob/master/test/tests.py")
+print("- hello world bundle: https://github.com/batect/hello-world-bundle/blob/master/test/tests.py")
