@@ -57,7 +57,7 @@ See [`lint:shell`](https://github.com/batect/shellcheck-bundle#lintshell) from [
 
 #### `test`
 
-Runs `test/tests.py` in a container that has a running Docker daemon.
+Runs `test/tests.py` (in the project, not from this bundle) in a container that has a running Docker daemon.
 
 The [Golang bundle](https://github.com/batect/golang-bundle/blob/master/test/tests.py), [Node.js bundle](https://github.com/batect/node-bundle/blob/master/test/tests.py),
 [Java bundle](https://github.com/batect/java-bundle/blob/master/test/tests.py) and [hello world bundle](https://github.com/batect/hello-world-bundle/blob/master/test/tests.py)
