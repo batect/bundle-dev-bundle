@@ -45,7 +45,7 @@ tasks:
     group: Formatting check tasks
     run:
       container: yamllint
-      command: yamllint .
+      command: yamllint --strict .
 
   check-format:python:
     description: Check formatting of Python code.
