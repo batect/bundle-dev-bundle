@@ -2,7 +2,7 @@ containers:
   yamllint:
     build_directory: .batect/yamllint
     volumes:
-      - local: .
+      - local: <{batect.project_directory}
         container: /code
         options: ro
     working_directory: /code
@@ -10,7 +10,7 @@ containers:
   test-env:
     build_directory: .batect/test-env
     volumes:
-      - local: .
+      - local: <{batect.project_directory}
         container: /code
         options: cached
     working_directory: /code
@@ -19,7 +19,7 @@ containers:
   shfmt:
     image: mvdan/shfmt:v3.1.2
     volumes:
-      - local: .
+      - local: <{batect.project_directory}
         container: /code
         options: ro
     working_directory: /code
@@ -27,7 +27,7 @@ containers:
   yapf:
     build_directory: .batect/yapf
     volumes:
-      - local: .
+      - local: <{batect.project_directory}
         container: /code
         options: ro
     working_directory: /code
