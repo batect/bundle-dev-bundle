@@ -1,0 +1,18 @@
+tasks:
+  check-format:
+    description: Run all formatting check tasks.
+    group: Formatting check tasks
+    prerequisites:
+      - check-format:python
+      - check-format:shell
+      - check-format:yaml
+
+  lint:
+    description: Run all linting tasks.
+    group: Linting tasks
+    prerequisites:
+      - lint:docker
+      - lint:shell
+
+include:
+  - batect-bundle.yml

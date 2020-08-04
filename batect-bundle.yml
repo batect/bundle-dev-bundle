@@ -1,0 +1,71 @@
+containers:
+  yamllint:
+    build_directory: .batect/yamllint
+    volumes:
+      - local: .
+        container: /code
+        options: ro
+    working_directory: /code
+
+  test-env:
+    build_directory: .batect/test-env
+    volumes:
+      - local: .
+        container: /code
+        options: cached
+    working_directory: /code
+    privileged: true
+
+  shfmt:
+    image: mvdan/shfmt:v3.1.2
+    volumes:
+      - local: .
+        container: /code
+        options: ro
+    working_directory: /code
+
+  yapf:
+    build_directory: .batect/yapf
+    volumes:
+      - local: .
+        container: /code
+        options: ro
+    working_directory: /code
+
+tasks:
+  check-format:shell:
+    description: Check formatting of shell scripts.
+    group: Formatting check tasks
+    run:
+      container: shfmt
+      command: -d .
+
+  check-format:yaml:
+    description: Check formatting of all YAML files.
+    group: Formatting check tasks
+    run:
+      container: yamllint
+      command: yamllint .
+
+  check-format:python:
+    description: Check formatting of Python code.
+    group: Formatting check tasks
+    run:
+      container: yapf
+      command: yapf --diff --recursive .
+
+  test:
+    description: Run the tests.
+    group: Testing tasks
+    run:
+      container: test-env
+      command: python3 test/tests.py
+
+include:
+  - type: git
+    repo: https://github.com/batect/shellcheck-bundle.git
+    ref: 0.1.0
+
+  - type: git
+    repo: https://github.com/batect/hadolint-bundle.git
+    ref: 0.1.0
