@@ -1,6 +1,14 @@
 containers:
-  yamllint:
-    build_directory: .batect/yamllint
+  editorconfig-checker:
+    image: mstruebing/editorconfig-checker:2.1.0
+    volumes:
+      - local: <{batect.project_directory}
+        container: /code
+        options: ro
+    working_directory: /code
+
+  shfmt:
+    image: mvdan/shfmt:v3.1.2
     volumes:
       - local: <{batect.project_directory}
         container: /code
@@ -16,8 +24,8 @@ containers:
     working_directory: /code
     privileged: true
 
-  shfmt:
-    image: mvdan/shfmt:v3.1.2
+  yamllint:
+    build_directory: .batect/yamllint
     volumes:
       - local: <{batect.project_directory}
         container: /code
@@ -33,6 +41,20 @@ containers:
     working_directory: /code
 
 tasks:
+  check-format:editorconfig-compliance:
+    description: Check formatting of all files against the configuration in .editorconfig.
+    group: Formatting check tasks
+    run:
+      container: editorconfig-checker
+      command: ec
+
+  check-format:python:
+    description: Check formatting of Python code.
+    group: Formatting check tasks
+    run:
+      container: yapf
+      command: yapf --diff --recursive .
+
   check-format:shell:
     description: Check formatting of shell scripts.
     group: Formatting check tasks
@@ -46,13 +68,6 @@ tasks:
     run:
       container: yamllint
       command: yamllint --strict .
-
-  check-format:python:
-    description: Check formatting of Python code.
-    group: Formatting check tasks
-    run:
-      container: yapf
-      command: yapf --diff --recursive .
 
   test:
     description: Run the tests.

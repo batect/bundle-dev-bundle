@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/github/workflow/status/batect/bundle-dev-bundle/Pipeline/master)](https://github.com/batect/bundle-dev-bundle/actions?query=workflow%3APipeline+branch%3Amaster)
 [![License](https://img.shields.io/github/license/batect/bundle-dev-bundle.svg)](https://opensource.org/licenses/Apache-2.0)
 
-A bundle for [batect](https://batect.dev) that provides a sensible default environment for bundle development.
+A bundle for [batect](https://batect.dev) that provides an opinionated, sensible default environment for bundle development.
 
 ## Usage
 
@@ -19,6 +19,10 @@ include:
 ```
 
 ### Tasks
+
+#### `check-format:editorconfig-compliance`
+
+Uses [editorconfig-checker](https://github.com/editorconfig-checker/editorconfig-checker) to check that all files comply with the configuration in `.editorconfig`.
 
 #### `check-format:python`
 
@@ -74,6 +78,7 @@ tasks:
     description: Run all formatting check tasks.
     group: Formatting check tasks
     prerequisites:
+      - check-format:editorconfig-compliance
       - check-format:python
       - check-format:shell
       - check-format:yaml

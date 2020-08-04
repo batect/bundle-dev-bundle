@@ -3,6 +3,7 @@ tasks:
     description: Run all formatting check tasks.
     group: Formatting check tasks
     prerequisites:
+      - check-format:editorconfig-compliance
       - check-format:python
       - check-format:shell
       - check-format:yaml
