@@ -93,6 +93,10 @@ tasks:
 
 This repository also has [a sample GitHub Actions workflow](.github/workflows/build.yml) that uses these tasks to check the bundle on every push.
 
+The [Golang bundle](https://github.com/batect/golang-bundle/blob/master/test/tests.py), [Node.js bundle](https://github.com/batect/node-bundle/blob/master/test/tests.py),
+[Java bundle](https://github.com/batect/java-bundle/blob/master/test/tests.py) and [hello world bundle](https://github.com/batect/hello-world-bundle/blob/master/test/tests.py)
+all use this bundle as part of their development workflow.
+
 ## Development
 
 Run `./batect --list-tasks` to see a list of available tasks for this project.
