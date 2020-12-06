@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/github/workflow/status/batect/bundle-dev-bundle/Pipeline/master)](https://github.com/batect/bundle-dev-bundle/actions?query=workflow%3APipeline+branch%3Amaster)
 [![License](https://img.shields.io/github/license/batect/bundle-dev-bundle.svg)](https://opensource.org/licenses/Apache-2.0)
 
-A bundle for [batect](https://batect.dev) that provides an opinionated, sensible default environment for bundle development.
+A bundle for [Batect](https://batect.dev) that provides an opinionated, sensible default environment for bundle development.
 
 ## Usage
 
@@ -37,7 +37,7 @@ Uses [shfmt](https://github.com/mvdan/sh#shfmt) to check the formatting of all s
 You may need to add the following to your `.editorconfig` file so that `shfmt` does not check the formatting of the `batect` script:
 
 ```editorconfig
-[batect]
+[Batect]
 ignore = true
 ```
 
