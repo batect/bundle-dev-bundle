@@ -1,4 +1,4 @@
-FROM docker:19.03.14-dind
+FROM docker:20.10.0-dind
 
 RUN apk add --no-cache \
     bash=5.0.17-r0 \
