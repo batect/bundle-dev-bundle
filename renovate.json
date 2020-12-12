@@ -14,7 +14,7 @@
     {
       "fileMatch": ["(^|/)Dockerfile$"],
       "matchStrings": [
-        "(?:RUN apk add --no-cache\\s+|\\\\\\s+)(?<depName>[a-zA-Z0-9-]+)=(?<currentValue>[a-zA-Z0-9-._]+)"
+        "(?:RUN apk (?:add --no-cache|--no-cache add)\\s+|\\\\\\s+)(?<depName>[a-zA-Z0-9-]+)(=|==)(?<currentValue>[a-zA-Z0-9-._]+)"
       ],
       "versioningTemplate": "loose",
       "datasourceTemplate": "repology",
