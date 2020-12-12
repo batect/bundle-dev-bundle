@@ -12,7 +12,7 @@
   "rebaseWhen": "behind-base-branch",
   "regexManagers": [
     {
-      "fileMatch": ["[^|/]Dockerfile$"],
+      "fileMatch": ["(^|/)Dockerfile$"],
       "matchStrings": [
         "(?:RUN apk add --no-cache\\s+|\\\\\\s+)(?<depName>[a-zA-Z0-9-]+)=(?<currentValue>[a-zA-Z0-9-._]+)"
       ],
