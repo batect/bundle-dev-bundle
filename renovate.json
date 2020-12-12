@@ -9,5 +9,16 @@
   ],
   "automerge": true,
   "labels": ["is:dependency-update"],
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "regexManagers": [
+    {
+      "fileMatch": ["[^|/]Dockerfile$"],
+      "matchStrings": [
+        "(?:RUN apk add --no-cache\\s+|\\\\\\s+)(?<depName>[a-zA-Z0-9-]+)=(?<currentValue>[a-zA-Z0-9-._]+)"
+      ],
+      "versioningTemplate": "loose",
+      "datasourceTemplate": "repology",
+      "lookupNameTemplate": "alpine_3_12/{{depName}}"
+    }
+  ]
 }
