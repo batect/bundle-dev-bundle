@@ -37,7 +37,7 @@ Uses [shfmt](https://github.com/mvdan/sh#shfmt) to check the formatting of all s
 You may need to add the following to your `.editorconfig` file so that `shfmt` does not check the formatting of the `batect` script:
 
 ```editorconfig
-[Batect]
+[batect]
 ignore = true
 ```
 
