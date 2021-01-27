@@ -3,7 +3,7 @@ FROM docker:19.03.14-dind
 RUN apk add --no-cache \
     bash=5.0.17-r0 \
     curl=7.69.1-r3 \
-    openjdk11-jre-headless=11.0.9_p11-r0 \
+    openjdk11-jre-headless=11.0.9_p11-r1 \
     python3=3.8.5-r0
 
 COPY entrypoint.sh /usr/local/bin/
