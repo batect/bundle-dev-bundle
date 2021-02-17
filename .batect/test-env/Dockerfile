@@ -1,4 +1,4 @@
-FROM docker:20.10.3-dind@sha256:7e1f7ea149d1d23e739dd763e918aa8adab341cef04e0ede6b9487c1859e445e
+FROM docker:20.10.3-dind@sha256:43df6c4dbc32ccb306412fcce5b1443310cf9d91507409d7258cea1c9ee731f4
 
 RUN apk add --no-cache \
     bash=5.1.0-r0 \
