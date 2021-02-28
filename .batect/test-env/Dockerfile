@@ -2,7 +2,7 @@ FROM docker:20.10.3-dind@sha256:43df6c4dbc32ccb306412fcce5b1443310cf9d91507409d7
 
 RUN apk add --no-cache \
     bash=5.1.0-r0 \
-    curl=7.74.0-r0 \
+    curl=7.74.0-r1 \
     openjdk11-jre-headless=11.0.9_p11-r1 \
     python3=3.8.7-r1
 
