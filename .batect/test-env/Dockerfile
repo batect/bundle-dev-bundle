@@ -4,7 +4,7 @@ RUN apk add --no-cache \
     bash=5.1.0-r0 \
     curl=7.74.0-r1 \
     openjdk11-jre-headless=11.0.9_p11-r1 \
-    python3=3.8.7-r1
+    python3=3.8.8-r0
 
 COPY entrypoint.sh /usr/local/bin/
 
