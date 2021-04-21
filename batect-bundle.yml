@@ -83,4 +83,4 @@ include:
 
   - type: git
     repo: https://github.com/batect/hadolint-bundle.git
-    ref: 0.9.0
+    ref: 0.11.0
