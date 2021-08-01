@@ -8,7 +8,7 @@ containers:
     working_directory: /code
 
   shfmt:
-    image: mvdan/shfmt:v3.3.0
+    image: mvdan/shfmt:v3.3.1
     volumes:
       - local: <{batect.project_directory}
         container: /code
