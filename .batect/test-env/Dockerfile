@@ -3,7 +3,7 @@ FROM docker:20.10.17-dind@sha256:6dd895238f055a79a6d044f7d97b668bef0f9a840e5eed0
 RUN apk add --no-cache \
     bash=5.1.16-r2 \
     curl=7.83.1-r2 \
-    openjdk17-jre-headless=17.0.4_p8-r0 \
+    openjdk17-jre-headless=17.0.4.1_p1-r0 \
     python3=3.10.5-r0
 
 COPY entrypoint.sh /usr/local/bin/
