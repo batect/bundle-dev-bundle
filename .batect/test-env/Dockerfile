@@ -1,5 +1,4 @@
-#hadolint ignore=DL3029
-FROM --platform=linux/arm64 ubuntu:22.04
+FROM ubuntu:22.04
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
