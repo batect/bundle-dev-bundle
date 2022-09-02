@@ -1,8 +1,23 @@
-print()
-print("There are no tests defined for this bundle.")
-print()
-print("Take a look at some of these bundles for examples:")
-print("- Golang bundle: https://github.com/batect/golang-bundle/blob/master/test/tests.py")
-print("- Node.js bundle: https://github.com/batect/node-bundle/blob/master/test/tests.py")
-print("- Java bundle: https://github.com/batect/java-bundle/blob/master/test/tests.py")
-print("- hello world bundle: https://github.com/batect/hello-world-bundle/blob/master/test/tests.py")
+import os
+import subprocess
+import unittest
+
+
+class TestBundleDevBundle(unittest.TestCase):
+
+    def test_can_start_batect(self):
+        command = ['./batect', '--version']
+
+        env = {
+            **os.environ,
+            'BATECT_QUIET_DOWNLOAD': 'true',
+        }
+
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
+
+        if result.returncode != 0:
+            raise AssertionError(f'Command failed with exit code {result.returncode} and output: \n{result.stdout}')
+
+
+if __name__ == '__main__':
+    unittest.main()

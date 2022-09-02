@@ -1,10 +1,30 @@
-FROM docker:20.10.17-dind@sha256:6dd895238f055a79a6d044f7d97b668bef0f9a840e5eed06fa01f1a6b7aed17e
+#hadolint ignore=DL3029
+FROM --platform=linux/arm64 ubuntu:22.04
 
-RUN apk add --no-cache \
-    bash=5.1.16-r2 \
-    curl=7.83.1-r3 \
-    openjdk17-jre-headless=17.0.4.1_p1-r0 \
-    python3=3.10.5-r0
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      ca-certificates=20211016 \
+      curl=7.81.0-1ubuntu1.4 \
+      git=1:2.34.1-1ubuntu1.4 \
+      gnupg=2.2.27-3ubuntu2.1 \
+      lsb-release=11.1.0ubuntu4 \
+      openjdk-17-jre-headless=17.0.4+8-1~22.04 \
+      python3=3.10.4-0ubuntu2 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+      docker-ce=5:20.10.17~3-0~ubuntu-jammy  \
+      docker-ce-cli=5:20.10.17~3-0~ubuntu-jammy  \
+      containerd.io=1.6.8-1 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /usr/local/bin/
 
