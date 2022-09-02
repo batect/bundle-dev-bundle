@@ -9,7 +9,7 @@ function main() {
 
 function startDocker() {
   echo "Starting Docker..."
-  dockerd &>/var/log/dockerd.log &
+  dockerd --storage-driver=vfs &>/var/log/dockerd.log &
 
   while [ ! -S /var/run/docker.sock ]; do
     echo "Waiting for Docker to start..."
