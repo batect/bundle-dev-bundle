@@ -45,8 +45,18 @@ containers:
     volumes:
       - local: <{batect.project_directory}
         container: /code
-        options: ro
+      - local: ${GITHUB_EVENT_PATH}
+        container: /github/event.json
     working_directory: /code
+    environment:
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      GITHUB_ACTION: ${GITHUB_ACTION}
+      GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}
+      GITHUB_EVENT_PATH: /github/event.json
+      GITHUB_SHA: ${GITHUB_SHA}
+      GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}
+      GITHUB_WORKSPACE: /code
+      GITHUB_REF: ${GITHUB_REF}
 
 tasks:
   check-format:editorconfig-compliance:
@@ -90,8 +100,6 @@ tasks:
     run:
       container: releaser
       command: semantic-release
-      environment:
-        GITHUB_TOKEN: ${GITHUB_TOKEN}
 
 include:
   - type: git
