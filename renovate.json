@@ -1,3 +1,11 @@
 {
-  "extends": ["github>batect/renovate-config:bundle"]
+  "extends": ["github>batect/renovate-config:bundle"],
+  "packageRules": [
+    {
+      "matchPaths": [
+        "+(.batect/releaser/**/*)"
+      ],
+      "semanticCommitScope": "internal"
+    }
+  ]
 }

@@ -1,0 +1,12 @@
+FROM node:16.17.0
+
+ENTRYPOINT []
+
+RUN mkdir -p /tools
+WORKDIR /tools
+COPY package.json /tools/package.json
+COPY yarn.lock /tools/yarn.lock
+
+RUN yarn install --frozen-lockfile
+
+ENV PATH=/tools/node_modules/.bin:$PATH

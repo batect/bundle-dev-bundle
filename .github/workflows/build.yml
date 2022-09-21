@@ -30,3 +30,29 @@ jobs:
 
       - name: Test bundle
         run: ./batect test
+
+  release:
+    name: "Release"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'batect/bundle-dev-bundle'
+    needs:
+      - build
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.0.2
+
+      - name: Cache Batect
+        uses: actions/cache@v3.0.8
+        with:
+          path: ~/.batect/cache
+          key: batect-${{ hashFiles('batect') }}
+
+      - name: Create release
+        run: ./batect release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

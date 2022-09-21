@@ -40,6 +40,14 @@ containers:
         options: ro
     working_directory: /code
 
+  releaser:
+    build_directory: .batect/releaser
+    volumes:
+      - local: <{batect.project_directory}
+        container: /code
+        options: ro
+    working_directory: /code
+
 tasks:
   check-format:editorconfig-compliance:
     description: Check formatting of all files against the configuration in .editorconfig.
@@ -75,6 +83,15 @@ tasks:
     run:
       container: test-env
       command: python3 test/tests.py
+
+  release:
+    description: Release this bundle.
+    group: Release tasks
+    run:
+      container: releaser
+      command: semantic-release
+      environment:
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
 
 include:
   - type: git
