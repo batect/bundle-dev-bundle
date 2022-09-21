@@ -1,8 +1,0 @@
-{
-  "license": "Apache-2.0",
-  "private": true,
-  "dependencies": {
-    "conventional-changelog-conventionalcommits": "^5.0.0",
-    "semantic-release": "^19.0.5"
-  }
-}

@@ -40,24 +40,6 @@ containers:
         options: ro
     working_directory: /code
 
-  releaser:
-    build_directory: .batect/releaser
-    volumes:
-      - local: <{batect.project_directory}
-        container: /code
-      - local: ${GITHUB_EVENT_PATH}
-        container: /github/event.json
-    working_directory: /code
-    environment:
-      GITHUB_TOKEN: ${GITHUB_TOKEN}
-      GITHUB_ACTION: ${GITHUB_ACTION}
-      GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}
-      GITHUB_EVENT_PATH: /github/event.json
-      GITHUB_SHA: ${GITHUB_SHA}
-      GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}
-      GITHUB_WORKSPACE: /code
-      GITHUB_REF: ${GITHUB_REF}
-
 tasks:
   check-format:editorconfig-compliance:
     description: Check formatting of all files against the configuration in .editorconfig.
@@ -93,13 +75,6 @@ tasks:
     run:
       container: test-env
       command: python3 test/tests.py
-
-  release:
-    description: Release this bundle.
-    group: Release tasks
-    run:
-      container: releaser
-      command: semantic-release
 
 include:
   - type: git

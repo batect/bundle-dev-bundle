@@ -46,13 +46,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3.0.2
 
-      - name: Cache Batect
-        uses: actions/cache@v3.0.8
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.4.1
         with:
-          path: ~/.batect/cache
-          key: batect-${{ hashFiles('batect') }}
+          node-version: 16
 
       - name: Create release
-        run: ./batect release
+        run: npx --package conventional-changelog-conventionalcommits@5.0.0 --package semantic-release@19.0.5 semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

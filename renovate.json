@@ -1,11 +1,16 @@
 {
   "extends": ["github>batect/renovate-config:bundle"],
-  "packageRules": [
+  "regexManagers": [
     {
-      "matchPaths": [
-        "+(.batect/releaser/*)"
+      "fileMatch": [
+        "^.github/workflows/(.*).yml"
       ],
-      "semanticCommitScope": "internal"
+      "matchStrings": [
+        "run:\\s+npx\\s+(.*)",
+        "--package\\s+(?<depName>[a-zA-Z0-9-]+)@(?<currentValue>[a-zA-Z0-9-._]+)"
+      ],
+      "datasourceTemplate": "npm",
+      "matchStringsStrategy": "recursive"
     }
   ]
 }
