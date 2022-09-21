@@ -75,3 +75,4 @@ plugins:
             hidden: false
   - - "@semantic-release/github"
     - releasedLabels: false
+tagFormat: ${version}
