@@ -3,7 +3,7 @@
   "packageRules": [
     {
       "matchPaths": [
-        "+(.batect/releaser/**/*)"
+        "+(.batect/releaser/*)"
       ],
       "semanticCommitScope": "internal"
     }
