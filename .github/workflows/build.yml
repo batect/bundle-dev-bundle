@@ -1,15 +1,15 @@
 name: Pipeline
 
-on: [push]
+on: [push, pull_request]
+
+env:
+  TERM: xterm-256color
+  BATECT_ENABLE_TELEMETRY: true
 
 jobs:
   build:
     name: "Lint and Test"
     runs-on: ubuntu-latest
-    env:
-      TERM: xterm-256color
-      BATECT_ENABLE_TELEMETRY: true
-
     steps:
       - uses: actions/checkout@v3.0.2
 
