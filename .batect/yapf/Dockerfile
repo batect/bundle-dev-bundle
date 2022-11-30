@@ -1,4 +1,4 @@
-FROM alpine:3.16.2
+FROM alpine:3.17.0
 
 RUN apk add --no-cache py3-pip=22.1.1-r0 \
     && pip install --no-cache-dir yapf==0.32.0
