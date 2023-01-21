@@ -46,7 +46,7 @@ tasks:
     group: Formatting check tasks
     run:
       container: editorconfig-checker
-      command: ec
+      command: ec -exclude ^\.git
 
   check-format:python:
     description: Check formatting of Python code.
