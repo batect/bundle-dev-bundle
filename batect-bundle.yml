@@ -1,6 +1,6 @@
 containers:
   editorconfig-checker:
-    image: mstruebing/editorconfig-checker:2.4.0
+    image: mstruebing/editorconfig-checker:2.7.0
     volumes:
       - local: <{batect.project_directory}
         container: /code
@@ -46,7 +46,7 @@ tasks:
     group: Formatting check tasks
     run:
       container: editorconfig-checker
-      command: ec
+      command: ec -exclude ^\.git
 
   check-format:python:
     description: Check formatting of Python code.
