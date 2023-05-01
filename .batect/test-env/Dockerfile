@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       ca-certificates=20211016 \
       curl=7.81.0-1ubuntu1.10 \
-      git=1:2.34.1-1ubuntu1.8 \
+      git=1:2.34.1-1ubuntu1.9 \
       gnupg=2.2.27-3ubuntu2.1 \
       lsb-release=11.1.0ubuntu4 \
       openjdk-17-jre-headless=17.0.6+10-0ubuntu1~22.04 \
