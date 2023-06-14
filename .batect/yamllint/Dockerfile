@@ -1,4 +1,4 @@
-FROM alpine:3.18.0
+FROM alpine:3.18.2
 
 RUN apk add --no-cache yamllint=1.31.0-r0
 
