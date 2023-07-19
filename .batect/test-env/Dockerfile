@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       ca-certificates=20230311ubuntu0.22.04.1 \
-      curl=7.81.0-1ubuntu1.10 \
+      curl=7.81.0-1ubuntu1.13 \
       git=1:2.34.1-1ubuntu1.9 \
       gnupg=2.2.27-3ubuntu2.1 \
       lsb-release=11.1.0ubuntu4 \
