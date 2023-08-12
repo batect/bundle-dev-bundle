@@ -9,7 +9,7 @@ RUN apt-get update && \
       git=1:2.34.1-1ubuntu1.9 \
       gnupg=2.2.27-3ubuntu2.1 \
       lsb-release=11.1.0ubuntu4 \
-      openjdk-17-jre-headless=17.0.7+7~us1-0ubuntu1~22.04.2 \
+      openjdk-17-jre-headless=17.0.8+7-1~22.04 \
       python3=3.10.6-1~22.04 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
