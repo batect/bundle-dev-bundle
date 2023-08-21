@@ -1,6 +1,6 @@
 containers:
   editorconfig-checker:
-    image: mstruebing/editorconfig-checker:2.7.0
+    image: mstruebing/editorconfig-checker:2.7.1
     volumes:
       - local: <{batect.project_directory}
         container: /code
